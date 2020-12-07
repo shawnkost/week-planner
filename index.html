@@ -7,93 +7,93 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="row">
-    <h1>Weekly Planner</h1>
-    <div class="days">
-      <button>Sunday</button>
-      <button>Monday</button>
-      <button>Tuesday</button>
-      <button>Wednesday</button>
-      <button>Thursday</button>
-      <button>Friday</button>
-      <button>Saturday</button>
+  <div class="container">
+
+    <div class="row">
+      <h1>Weekly Planner</h1>
+    </div>
+
+    <div class="row">
+      <button class="day-of-week-btn">Sunday</button>
+      <button class="day-of-week-btn">Monday</button>
+      <button class="day-of-week-btn">Tuesday</button>
+      <button class="day-of-week-btn">Wednesday</button>
+      <button class="day-of-week-btn">Thursday</button>
+      <button class="day-of-week-btn">Friday</button>
+      <button class="day-of-week-btn">Saturday</button>
+    </div>
+
+    <div class="row">
+      <button type="button" id="add-entry-btn">Add Entry</button>
+    </div>
+
+
+    <div id="data-view" data-view="Monday">
+
+    </div>
+
+
+
+    <div class="modal-container hide">
+      <form id="addEntryForm" class="modal-content">
+        <div class="row margin-bottom">
+          <h1>Add Entry</h1>
+        </div>
+
+
+        <div class="row margin-bottom left">
+          <select id="day-of-week" class="day-select">
+            <option>Day of the week</option>
+            <option>Sunday</option>
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+            <option>Sunday</option>
+          </select>
+          <select id="time" class="time">
+            <option>Time</option>
+            <option>1:00</option>
+            <option>2:00</option>
+            <option>3:00</option>
+            <option>4:00</option>
+            <option>5:00</option>
+            <option>6:00</option>
+            <option>7:00</option>
+            <option>8:00</option>
+            <option>9:00</option>
+            <option>10:00</option>
+            <option>11:00</option>
+            <option>12:00</option>
+            <option>13:00</option>
+            <option>14:00</option>
+            <option>15:00</option>
+            <option>16:00</option>
+            <option>17:00</option>
+            <option>18:00</option>
+            <option>19:00</option>
+            <option>20:00</option>
+            <option>21:00</option>
+            <option>22:00</option>
+            <option>23:00</option>
+            <option>24:00</option>
+          </select>
+        </div>
+
+        <div class="row margin-bottom left">
+          <textarea id="entry-description" placeholder="Description"></textarea>
+        </div>
+
+        <div class="row margin-bottom entry-submit-btn">
+          <button type="submit" id="submit-btn">Submit</button>
+        </div>
+
+      </form>
     </div>
   </div>
-  <div class="button-container">
-    <button type="button" id="button1">Add Entry</button>
-  </div>
-  <div class="table">
-    <h2>Scheduled Events for Monday</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Time</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>10:00</td>
-          <td>Code</td>
-        </tr>
-        <tr>
-          <td>10:00</td>
-          <td>Code</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="modal-container hide">
-    <form id="form1">
-      <h1>Add Entry</h1>
-      <div class="row">
-        <select id="day-of-week">
-          <option>Day of the week</option>
-          <option>Sunday</option>
-          <option>Monday</option>
-          <option>Tuesday</option>
-          <option>Wednesday</option>
-          <option>Thursday</option>
-          <option>Friday</option>
-          <option>Saturday</option>
-          <option>Sunday</option>
-        </select>
-        <select id="time">
-          <option>Time</option>
-          <option>1:00</option>
-          <option>2:00</option>
-          <option>3:00</option>
-          <option>4:00</option>
-          <option>5:00</option>
-          <option>6:00</option>
-          <option>7:00</option>
-          <option>8:00</option>
-          <option>9:00</option>
-          <option>10:00</option>
-          <option>11:00</option>
-          <option>12:00</option>
-          <option>13:00</option>
-          <option>14:00</option>
-          <option>15:00</option>
-          <option>16:00</option>
-          <option>17:00</option>
-          <option>18:00</option>
-          <option>19:00</option>
-          <option>20:00</option>
-          <option>21:00</option>
-          <option>22:00</option>
-          <option>23:00</option>
-          <option>24:00</option>
-        </select>
-      </div>
-      <div class="row">
-        <textarea id="text1"></textarea>
-      </div>
-      <div class="row">
-        <button type="submit" id="button2">Submit</button>
-      </div>
-    </form>
-  </div>
+  <script src="data.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
