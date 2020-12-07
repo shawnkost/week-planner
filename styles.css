@@ -1,13 +1,17 @@
-.hide {
-  display: none;
-}
-
 table {
   border: solid 2px black;
 }
 
-tr {
-  border-left: 5px black;
+th {
+  border-bottom: 2px black solid;
+}
+
+td {
+  border-right: solid 2px black;
+}
+
+table tr td:last-of-type {
+  border: none;
 }
 
 tr:nth-child(even) {
@@ -16,4 +20,29 @@ tr:nth-child(even) {
 
 tr:nth-child(odd) {
   background: #fff;
+}
+
+.container{
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.hide {
+  display: none;
+}
+
+.day-of-week-btn {
+  padding: 20px;
+  margin: 20px;
+  font-weight: bold;
+  background-color: white;
+}
+
+.day-of-week-btn:hover {
+  background-color: gray;
 }
