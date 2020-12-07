@@ -1,3 +1,15 @@
 .hide {
   display: none;
 }
+
+table {
+  border: solid 2px black;
+}
+
+tr:nth-child(even) {
+  background: #ccc;
+}
+
+tr:nth-child(odd) {
+  background: #fff;
+}
