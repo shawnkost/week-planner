@@ -28,35 +28,18 @@
     </div>
 
 
-    <div class="row">
-      <h2>Scheduled Events for Monday</h2>
-    </div>
-    <div class ="row">
-      <table>
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>10:00</td>
-            <td>Code</td>
-          </tr>
-          <tr>
-            <td>10:00</td>
-            <td>Code</td>
-          </tr>
-        </tbody>
-      </table>
+    <div id="data-view" data-view="Monday">
+
     </div>
 
 
 
     <div class="modal-container hide">
       <form id="addEntryForm">
-        <h1>Add Entry</h1>
+        <div class="row">
+          <h1>Add Entry</h1>
+        </div>
+
 
         <div class="row">
           <select id="day-of-week">
@@ -110,6 +93,7 @@
       </form>
     </div>
   </div>
+  <script src="data.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
