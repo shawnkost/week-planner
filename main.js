@@ -1,4 +1,8 @@
 
+startUpData()
+
+
+
 var $modal = document.querySelector('.modal-container');
 
 var $addEntryBtn = document.querySelector('#add-entry-btn');
@@ -11,15 +15,17 @@ function openModal(event) {
 
 }
 
+var $dataView = document.getElementById("data-view");
+
 function renderTable() {
 
-  var $dataView = document.getElementById("data-view");
+
 
   var headerContainer = document.createElement("div");
   headerContainer.setAttribute("class", "row");
 
   var headerText = document.createElement("h2");
-  headerText.textContent = "Scheduled Events for Monday";
+  headerText.textContent = "Scheduled Events for " + data.view.charAt(0).toUpperCase() + data.view.slice(1);
   headerContainer.appendChild(headerText);
 
   var tableContainer = document.createElement("div");
@@ -32,6 +38,7 @@ function renderTable() {
   table.appendChild(tableHeader);
 
   var tableRow = document.createElement("tr");
+  tableRow.setAttribute("class", "header-row")
   tableHeader.appendChild(tableRow);
 
   var tableHeaderContent1 = document.createElement("th");
@@ -45,30 +52,44 @@ function renderTable() {
   var tableBody = document.createElement("tbody");
   table.appendChild(tableBody);
 
-  var tableRow2 = document.createElement("tr");
-  tableBody.appendChild(tableRow2);
-
-  var tableData1 = document.createElement("td");
-  tableData1.textContent = "10:00";
-  tableRow2.appendChild(tableData1);
-
-  var tableData2 = document.createElement("td");
-  tableData2.textContent = "Code";
-  tableRow2.appendChild(tableData2);
-
-  var tableRow3 = document.createElement("tr");
-  tableBody.appendChild(tableRow3);
-
-  var tableData3 = document.createElement("td");
-  tableData3.textContent = "12:00";
-  tableRow3.appendChild(tableData3);
-
-  var tableData4 = document.createElement("td");
-  tableData4.textContent = "Read";
-  tableRow3.appendChild(tableData4);
+  for (var k = 0; k < data.entries.length; k++) {
 
 
 
+    var tableRow2 = document.createElement("tr");
+
+
+    var tableTime = document.createElement("td");
+    tableTime.textContent = data.entries[k].time;
+
+    var tableDescription = document.createElement("td");
+    tableDescription.textContent = data.entries[k].description;
+
+
+    tableRow2.appendChild(tableTime);
+
+    tableRow2.appendChild(tableDescription);
+
+    tableBody.appendChild(tableRow2);
+  }
+
+  if (data.entries.length < 10) {
+    for (var d = data.entries.length; d < 10; d++) {
+      var tableRow2 = document.createElement("tr");
+
+
+      var tableTime = document.createElement("td");
+
+      var tableDescription = document.createElement("td");
+
+
+      tableRow2.appendChild(tableTime);
+
+      tableRow2.appendChild(tableDescription);
+
+      tableBody.appendChild(tableRow2);
+  }
+  }
   $dataView.appendChild(headerContainer);
   $dataView.appendChild(tableContainer);
   return $dataView;
@@ -76,9 +97,6 @@ function renderTable() {
 
 renderTable();
 
-function viewSwap (weeb) {
-
-}
 
 var $week = document.querySelector('.day-select');
 var $time = document.querySelector('.time');
@@ -89,6 +107,7 @@ $form.addEventListener('submit', function(event){
   event.preventDefault();
 
   var newEntry = {};
+  data.view = $week.value.toLowerCase();
   newEntry.time = $time.value;
   newEntry.description = $description.value;
   data.entries.push(newEntry);
@@ -104,7 +123,31 @@ var weekBtnList = document.querySelectorAll('.day-of-week-btn');
 for (var i = 0; i < weekBtnList.length; i++){
   weekBtnList[i].addEventListener('click', function(event){
 
-    data = JSON.parse(localStorageItems);
+    $dataView.innerHTML = "";
+
+    var previousLocalStorageItem = localStorage.getItem(event.target.id);
+
+    if (previousLocalStorageItem !== null) {
+      data = JSON.parse(previousLocalStorageItem);
+    } else {
+      data.view = event.target.id;
+      data.entries = [];
+    }
+    console.log(data);
+    // data = JSON.parse(localStorageItems);
     renderTable();
+
+
+
+
   });
+}
+
+
+function startUpData () {
+  var prevData = localStorage.getItem("monday")
+  if (prevData !== null) {
+    data = JSON.parse(prevData);
+  }
+
 }

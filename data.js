@@ -1,9 +1,7 @@
 var data = {
-  view: "Monday",
+  view: "monday",
   entries: []
 };
-
-var localStorageItems = localStorage.getItem("week-planner")
 
 
 

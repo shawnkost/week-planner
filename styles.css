@@ -1,5 +1,7 @@
 table {
   border: solid 2px black;
+  width: 878px;
+  height: 500px;
 }
 
 /* thead {
@@ -93,4 +95,17 @@ tr:nth-child(odd) {
 
 .left {
   justify-content: left;
+}
+
+
+.add-entry-btn {
+  margin-bottom: 2%
+}
+
+.row > h2 {
+  margin-bottom: 1.4%
+}
+
+thead > tr {
+  background-color: darkgray
 }
